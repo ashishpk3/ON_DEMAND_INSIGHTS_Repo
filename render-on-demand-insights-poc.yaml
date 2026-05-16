@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: on-demand-insights-poc
+    runtime: docker
+    plan: free
+    dockerfilePath: OPM_Support_Agent/on_demand_insights_poc/Dockerfile
+    dockerContext: OPM_Support_Agent/on_demand_insights_poc
+    healthCheckPath: /health
+    envVars:
+      # Shared secret with Salesforce Custom Label ON_DEMAND_PY_INSIGHTS_API_KEY (use NONE there to disable header).
+      - key: ON_DEMAND_INSIGHTS_API_KEY
+        sync: false
